@@ -1,0 +1,274 @@
+{
+  "info": {
+    "_postman_id": "be86d1f3-c270-4bc2-8847-1ccec5bb3483",
+    "name": "проверка апи",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57249415",
+    "_collection_link": "https://go.postman.co/collection/57249415-be86d1f3-c270-4bc2-8847-1ccec5bb3483?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Проверка авторизации",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"login\": \"volkov_andrey\",\r\n    \"password\": \"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5236/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Все договоры пользователя",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "tenant_2",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "tenant123",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5236/api/contracts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "contracts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Договор по айди",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "tenant_2",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "tenant123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5236/api/contracts/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "contracts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Создание объекта",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "volkov_andrey",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "admin123",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"address\": \"г. Новгород, ул. Новая, д. 1\",\r\n    \"cadastralNumber\": \"43:07:000000:001\",\r\n    \"type\": \"жилое\",\r\n    \"totalArea\": 45.5,\r\n    \"purpose\": \"проживание\",\r\n    \"condition\": \"хорошее\",\r\n    \"isRentedNow\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5236/api/propertyobjects",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "propertyobjects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Получить всех арендаторов",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "volkov_andrey",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "admin123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5236/api/tenants",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "tenants"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Получить арендаторов по ИНН",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "volkov_andrey",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "admin123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5236/api/tenants/byinn/434500000031",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "tenants",
+            "byinn",
+            "434500000031"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Получить должников",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Login",
+            "value": "volkov_andrey",
+            "type": "text"
+          },
+          {
+            "key": "X-Password",
+            "value": "admin123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5236/api/payments/debtors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5236",
+          "path": [
+            "api",
+            "payments",
+            "debtors"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
