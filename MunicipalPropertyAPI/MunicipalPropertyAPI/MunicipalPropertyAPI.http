@@ -1,0 +1,6 @@
+@MunicipalPropertyAPI_HostAddress = http://localhost:5236
+
+GET {{MunicipalPropertyAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
